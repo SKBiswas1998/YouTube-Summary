@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Fetcher</title>
+    <style>
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: orange;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkorange;
+}
+
+textarea {
+    width: 80%;
+    height: 200px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+    </style>
+</head>
+<body>
+    <h1>YouTube Transcript Fetcher</h1>
+    <form method="POST">
+        <input type="text" name="youtube_url" placeholder="Enter YouTube URL" required>
+        <button type="submit">Fetch Transcript</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if transcript %}
+        <h2>Transcript</h2>
+        <textarea readonly>{{ transcript }}</textarea>
+    {% endif %}
+</body>
+</html>
